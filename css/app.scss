@@ -1,0 +1,312 @@
+//
+// © iWebD.net 2018
+// 
+
+@import "reset.scss";
+@import url('https://fonts.googleapis.com/css?family=Gugi|Open+Sans:300,400,600');
+
+//Common Setting
+$fontTitle: 'Gugi', cursive;
+$fontDesc: 'Open Sans', Arial,  sans-serif; //font-weight 300:: light, 400:regular, 600:semi-bold
+$imgPath:'../img/';
+
+//Mixin
+@mixin test {
+  border: 1px solid red;
+}
+
+@mixin clfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+
+@mixin ani($speed:1s) {
+  -moz-transition: all $speed ease;
+  -o-transition: all $speed ease;
+  -webkit-transition: all $speed ease;
+  transition: all $speed ease;
+}
+
+@mixin center($width:100%, $mwidth:$width) {
+  width: $width;
+  max-width: $mwidth;
+  margin: 0 auto;
+}
+
+@mixin bgimg($filename, $position:0 0, $repeat: no-repeat) {
+  background: transparent url(#{$imagedir}#{$filename}.jpg) $repeat $position;
+}
+
+@mixin customani($id, $duration:1000ms, $loop:infinite, $type:ease-in-out) {
+  -webkit-animation-name: $id;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-iteration-count: $loop;
+  -webkit-animation-timing-function: $type;
+  -moz-animation-name: $id;
+  -moz-animation-duration: $duration;
+  -moz-animation-iteration-count: $loop;
+  -moz-animation-timing-function: $type;
+  -ms-animation-name: $id;
+  -ms-animation-duration: $duration;
+  -ms-animation-iteration-count: $loop;
+  -ms-animation-timing-function: $type;
+  animation-name: $id;
+  animation-duration: $duration;
+  animation-iteration-count: $loop;
+  animation-timing-function: $type;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+// Content
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height:auto;
+}
+
+.flex-cont {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  > div {
+    flex:1;
+  }
+}
+
+// Index
+.logo-iwd {
+  position: absolute;
+  z-index: 1;
+  top:0px;
+  left:10px;
+  display: block;
+  width: 36px;
+  height: 36px;
+  background: url('#{$imgPath}logo.svg');
+  background-size:100% 100%;
+}
+
+.index-tit {
+  width: 100%;
+  height:100%;
+  .main-slogan {
+    font-family: $fontTitle;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    span {
+      vertical-align: bottom;
+    }
+    .main-slogan-tit {
+      margin-bottom: 15px;
+    }
+    .main-slogan-subtit {
+      font-size: 10px;
+      letter-spacing: 5px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.copyright {
+  font-family: $fontDesc;
+  font-size: 10px;
+  position: absolute;
+  bottom:10px;
+  left:0px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+// Console Effect
+.console-underscore {
+	width: 1px;
+	height: 100%;
+	margin-left: 5px;
+	background: #fff;
+	display:inline-block;
+	vertical-align: middle;
+	-webkit-animation-name: console;
+	-webkit-animation-duration: 700ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: console;
+	-moz-animation-duration: 700ms;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+	-ms-animation-name: console;
+	-ms-animation-duration: 700ms;
+	-ms-animation-iteration-count: infinite;
+	-ms-animation-timing-function: linear;
+	animation-name: console;
+	animation-duration: 700ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@-webkit-keyframes console {
+	from {
+		opacity:0;
+	}
+
+	50% {
+		opacity:1;
+	}
+
+	to {
+		opacity:0;
+	}
+}
+
+@keyframes console {
+	from {
+		opacity:0;
+	}
+
+	50% {
+		opacity:1;
+	}
+
+	to {
+		opacity:0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Background 
+#particles-js {
+  position: fixed;
+  z-index: 0;
+  top:0px;
+  left:0px;
+  width: 100%;
+  height: 100%;
+  background-color: #00040c;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+
+// Menu icon
+.menuOne {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transition: .1s;
+  margin: 10px 10px;
+  cursor: pointer;
+  display: inline-block;
+  span {
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    display: block;
+    border-radius: 1px;
+    transition: 350ms cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  }
+  &:hover span {
+    transform: scale(2);
+    transition: 350ms cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  }
+  span {
+    &:nth-child(1) {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &:nth-child(2) {
+      position: absolute;
+      left: 14px;
+      top: 0;
+    }
+    &:nth-child(3) {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    &:nth-child(4) {
+      position: absolute;
+      left: 0;
+      top: 14px;
+    }
+    &:nth-child(5) {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+    }
+    &:nth-child(6) {
+      position: absolute;
+      right: 0px;
+      top: 14px;
+    }
+    &:nth-child(7) {
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+    }
+    &:nth-child(8) {
+      position: absolute;
+      left: 14px;
+      bottom: 0px;
+    }
+    &:nth-child(9) {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+    }
+  }
+}
+
+.clickMenuOne {
+  transform: rotate(180deg);
+  cursor: pointer;
+  transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  span {
+    border-radius: 50%;
+    transition-delay: 200ms;
+    background-color: rgba(255, 255, 255, 0.767);
+    transition: 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    &:nth-child(2) {
+      position: absolute;
+      left: 8px;
+      top: 8px;
+    }
+    &:nth-child(4) {
+      position: absolute;
+      left: 8px;
+      top: 20px;
+    }
+    &:nth-child(6) {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+    }
+    &:nth-child(8) {
+      position: absolute;
+      left: 20px;
+      bottom: 8px;
+    }
+  }
+}
